@@ -1,0 +1,16 @@
+{% extends 'layout.html'%}
+
+{% block body %}
+    
+   <h1>  {{recipes.rname}} </h1>
+    <hr>
+    <div>
+        
+    </div>
+    <div class=>
+        Instructions:
+        <br>
+       {{recipes.rdescription| safe}}
+    </div>
+
+{%endblock%}

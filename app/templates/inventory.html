@@ -1,0 +1,23 @@
+{%extends 'layout.html'%}
+
+{% block body %}
+  <h1> Inventory </h1>
+  <p> Please enter the ingredients that you would like to place in your inventory</p>
+  <hr>
+  {%from 'formhelper.html' import render_field%}
+  
+  <form action="{{url_for('invent')}}" method="POST">
+    <div class="form-group">
+        <div>
+          {{ render_field(form.ingredients) }}
+         
+        </div>
+      
+       
+    </div>
+    
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  
+{% endblock %}

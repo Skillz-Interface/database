@@ -1,0 +1,52 @@
+<ul>
+    <li><a>Home</a></li>
+    <li> <a>Profile</a></li>
+    
+    <li><a>Recipes</a>
+        <ul>
+            <li><a> Your Recipe </a></li>
+            <li><a> Friends' Recipes </a></li>
+        
+        
+        
+        </ul>
+    
+    </li>
+    <li><a>Inventory</a>
+        <ul>
+            <li><a>Add to Inventory</a></li>
+            <li><a>Inventory List</a></li>
+        </ul>
+    
+    </li>
+    <li><a>Meal</a>
+        <ul>
+            <li><a>Create Meal Plan</a></li>
+        </ul>
+    </li>
+ 
+</ul>
+
+
+
+ <ul class =" navbar-right" >
+      {% if session.logged_in != NULL %}
+        <li class="nav-item" id="sub">
+          <a class="nav-link" href="/logout" id ="suber">Logout</a>
+        </li>
+        <li class="nav-item" id="sub">
+          <a class="nav-link" href="/register" id ="suber">Register</a>
+        </li>
+        
+        
+      
+      
+        {% elif session.logged_in == NULL %}
+        <li class="nav-item" id="sub">
+          <a class="nav-link" href="/login" id ="suber">Login</a>
+        </li>
+        <li class="nav-item" id="sub">
+          <a class="nav-link" href="/register" id ="suber">Register</a>
+        </li>
+      {%endif%}
+    </ul>

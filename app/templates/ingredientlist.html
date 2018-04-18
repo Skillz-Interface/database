@@ -1,0 +1,44 @@
+{% extends 'layout.html'%}
+
+
+{%block body%}
+
+
+    <h1> Ingredients in store</h1>
+     
+    <div class = 'pull-right'>
+        <form action = {{url_for('ser')}} method = 'POST'>
+            
+            <input type= "text" name="searchtext" value=""><input type="submit" value="Search"> 
+        </form>
+    </div>
+        
+   <br>
+
+  
+    
+    <hr>
+    <table class="table table-striped">
+        <tr>
+          <th>Ingredients Name</th> 
+         
+    </tr>
+    {% for data in data %}
+      <tr>
+        <td><a href="#"> {{data.ingredient_name}} </a></td>
+     
+      
+      </tr>
+    {% endfor %}
+  </table>
+  <div class ="pull-right">
+      <a href="/supermarketlist" class="btn btn-success"> Generate Supermarket List </a>
+  </div>
+
+
+
+
+
+
+
+{%endblock%}

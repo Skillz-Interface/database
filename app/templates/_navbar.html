@@ -1,0 +1,77 @@
+
+
+
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark  ">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto" >
+      <li class="nav-item active" >
+        <a class="nav-link" href="/" >Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/profile" >Profile <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Recipes
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/recipes">Your Recipe Book</a>
+          <a class="dropdown-item" href="#">Friends Recipes'</a>
+          
+        </div>
+     
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Inventory
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/inventory">Add to Inventory</a>
+          <a class="dropdown-item" href="/tracklist">Inventory List</a>
+          <a class="dropdown-item" href="/ingredlist">TrackList List</a>
+          <a class="dropdown-item" href="/supermarketlist">Super List</a>
+         
+        </div>
+      </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Meal
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/mealplan">Create Meal Plan</a>
+        </div>
+      </li>
+    
+   
+           {% if session.logged_in != NULL %}
+        <li class="nav-item" class="pull-right">
+          <a class="nav-link" href="/logout" >Logout</a>
+        </li>
+        <li class="nav-item" class="pull-right" >
+          <a class="nav-link" href="/register" >Register</a>
+        </li>
+        
+        
+      
+      
+        {% elif session.logged_in == NULL %}
+        <li class="nav-item" class="pull-right">
+          <a class="nav-link" href="/login" >Login</a>
+        </li>
+        <li class="nav-item" class="pull-right">
+          <a class="nav-link" href="/register">Register</a>
+        </li>
+      {%endif%}
+      
+     
+    
+    </ul>
+   
+   
+   

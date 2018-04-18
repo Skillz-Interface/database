@@ -1,0 +1,41 @@
+{%extends 'layout.html'%}
+
+{% block body %}
+  <h1> Inventory </h1>
+  <p> Please describe the stock of each ingredient in your inventory. Please note that if you describe a </p>
+  <hr>
+  {%from 'formhelper.html' import render_field%}
+  <table class="table table-striped">
+        <tr>
+          <th>Ingredients Name</th> 
+          <th>Status</th>
+          <th></th>
+          <th></th>
+    </tr>
+    {% for data in data %}
+      <tr>
+        <td><a href="#"> {{data.ingredient_name}} </a></td>
+        <td>
+          <form action="{{url_for('ingredlist')}}" method="POST">
+            <div class="form-group">
+              <div>
+                {{ render_field(form.ingredients) }}
+              </div>
+            </div>
+            
+         
+        </td>
+        <td><button type="submit" class="btn btn-primary">Submit Status</button></td>
+        </form>
+     
+      
+      </tr>
+    {% endfor %}
+  </table>
+
+
+ 
+  
+
+  
+{% endblock %}

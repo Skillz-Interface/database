@@ -1,0 +1,44 @@
+{%extends 'layout.html'%}
+
+   
+{%block body%}
+    <h1> Recipes</h1>
+     
+    <div class = 'pull-right'>
+        <form action = {{url_for('ser')}} method = 'POST'>
+            
+            <input type= "text" name="searchtext" value=""><input type="submit" value="Search"> 
+        </form>
+    </div>
+        
+   <br>
+
+  
+    
+    <hr>
+    <table class="table table-striped">
+        <tr>
+          <th>ID</th>
+          <th>Name</th> 
+          <th>Date</th>
+          <th></th>
+          <th></th>
+    </tr>
+    {% for recipe in recipes %}
+      <tr>
+        <td>{{recipe.recipeId}}</td>
+        <td><a href="/recipe/{{recipe.recipeId}}/"> {{recipe.rname}} </a></td>
+        <td>{{recipe.create_date}}</td>
+        <td><a href="edit_recipe/{{recipe.recipeId}}" class="btn btn-primary pull-right">Edit</a></td>
+        <td> 
+            <form action = {{url_for('delete_recipe', id=recipe.recipeId)}} method = "POST">
+                
+                <input type= "hidden" name="_method" value="DELETE" >   
+                <input type="submit" value="Delete" class="btn btn-danger">
+            </form>
+        </td>
+      
+      </tr>
+    {% endfor %}
+  </table>
+{%endblock%}
