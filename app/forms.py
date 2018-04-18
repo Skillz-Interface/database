@@ -1,6 +1,8 @@
 from flask import Flask
 
+
 from wtforms import Form, StringField,TextAreaField,PasswordField, validators, SelectField, SelectMultipleField,widgets, RadioField
+
 
 from flask_wtf.file import FileField, FileRequired, FileAllowed
 from wtforms.validators import DataRequired, InputRequired
@@ -56,7 +58,16 @@ class SearchForm(Form):
     
 class IngredientsForm(Form):
     
-    ingredients = MultiCheckboxField('Ingredients', choices=[('Chicken Stock','Chicken Stock'),( 'Carrots', 'Carrots'),('Potatoes','Potatoes'),('Peas','Potatoes'),('Heavy Cream','Heavy Cream'),('Modified Food Starch','Modified Food Starch') ])
+    ingredients = MultiCheckboxField('Ingredients', choices=[('Chicken Stock','Chicken Stock'),( 'Carrots', 'Carrots'),('Potatoes','Potatoes'),
+                                    ('Peas','Potatoes'),('Heavy Cream','Heavy Cream'),('Modified Food Starch','Modified Food Starch'),
+                                    ('Butter','Butter'),('Cream','Cream'),('Natural Flavoring','Natural Flavoring'),('Maltodextrin','Maltodextrin'),('Milk Solids','Milk Solids'),('Nonfat Dry Milk', 'Milk Solids'),('Chicken Fat','Chicken Fat'),('Beef Extract','Beef Extract'),('Ascorbic Acid','Ascorbic Acid'),('Monosodium Glutamate','Monosodium Glutamate'),('Liquid Margarine','Liquid Margarine'),
+    ('Vegetable Oil Blend','Vegetable Oil Blend'),('Liquid Soybean','Liquid Soybean'), ('Hydrogenated Cottonseed','Hydrogenated Cottonseed') 
+                                    
+        
+                                    
+                                    
+                                    
+                                    ])
         
     
 class TracklistForm(Form):

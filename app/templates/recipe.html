@@ -27,7 +27,7 @@
     {% for recipe in recipes %}
       <tr>
         <td>{{recipe.recipeId}}</td>
-        <td><a href="/recipe/{{recipe.recipeId}}/"> {{recipe.rname}} </a></td>
+        <td><a href="/recipe/{{recipe.recipeId}}/" style = "color: green"> <b>{{recipe.rname}}</b> </a></td>
         <td>{{recipe.create_date}}</td>
         <td><a href="edit_recipe/{{recipe.recipeId}}" class="btn btn-primary pull-right">Edit</a></td>
         <td> 

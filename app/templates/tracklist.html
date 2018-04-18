@@ -7,25 +7,25 @@
   {%from 'formhelper.html' import render_field%}
   <table class="table table-striped">
         <tr>
-          <th>Ingredients Name</th> 
+          <th><b>Ingredients Name</b></th> 
           <th>Status</th>
           <th></th>
           <th></th>
     </tr>
     {% for data in data %}
       <tr>
-        <td><a href="#"> {{data.ingredient_name}} </a></td>
-        <td>
+        <td style = 'background-color:#BC8F8F'><a href="#" style = 'color:white'> <b>{{data.ingredient_name}} </b></a></td>
+        <td style = 'background-color:#BC8F8F'>
           <form action="{{url_for('ingredlist')}}" method="POST">
             <div class="form-group">
               <div>
-                {{ render_field(form.ingredients) }}
+                <b>{{ render_field(form.ingredients) }}</b>
               </div>
             </div>
             
          
         </td>
-        <td><button type="submit" class="btn btn-primary">Submit Status</button></td>
+        <td style = 'background-color:#BC8F8F'><button type="submit" class="btn btn-primary">Submit Status</button></td>
         </form>
      
       

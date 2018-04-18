@@ -330,7 +330,11 @@ def is_logged_in(f):
 @app.route('/')
 @is_logged_in
 def home():
-    return render_template('home.html')
+    cur = mysql.connection.cursor()
+    res = cur.callproc('countit',(Iuse,))
+    data = cur.fetchone()
+    print(data)
+    return render_template('home.html',data=data)
     
 @app.route('/profile/',methods=['GET','POST'])
 @is_logged_in
@@ -362,6 +366,7 @@ def addrecipe():
         #Create cursor
         cur = mysql.connection.cursor()
         cur1 = mysql.connection.cursor()
+        cur4 = mysql.connection.cursor()
         
         #Execute
         cur.execute('INSERT INTO recipe (userId,rname,rdescription) VALUES (%s,%s,%s)',(Iuse,Rname, Instruct,))
@@ -381,8 +386,11 @@ def addrecipe():
         result = cur1.execute("SELECT * FROM instruction WHERE recipeId = %s  ", (fact,))
         data = cur1.fetchone()
         fact1 = data['instructionId']
+    
         
-        cur.execute ('UPDATE recipe SET instructionId = %s WHERE recipeId = %s',(fact1,fact) )
+        cur.execute ('UPDATE instruction SET recipeId = %s WHERE instructionId = %s',(fact,fact1) )
+        mysql.connection.commit()
+        cur4.execute('INSERT INTO user_recipe (userId,recipeId) VALUES (%s,%s)',(Iuse,fact,))
 
        
        
@@ -392,6 +400,7 @@ def addrecipe():
         #Close connection
         cur.close()
         cur1.close()
+        cur4.close()
         
         flash('Recipe Updated', 'success')
         return redirect(url_for('home'))
@@ -700,7 +709,17 @@ def ingredlist():
             cur5.close()
     
 
+@app.route('/popingred')
+@is_logged_in
+def popingred():
+    for  i in ingredients_list:
+        cur = mysql.connection.cursor()
     
+        cur.execute("INSERT INTO ingredient(ingredient_name)VALUES(%s)",(i,))
+        mysql.connection.commit()
+        cur.close()
+    return render_template('home.html')
+        
    
 @app.route('/supermarketlist')
 @is_logged_in

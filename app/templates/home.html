@@ -1,9 +1,16 @@
 
 {% extends 'layout.html' %}
 
+
 {% block body %}
   <h1>Dashboard <small> Welcome {{session.username}}</small></h1>
   <a class="btn btn-success" href="/add_recipe">Add Recipe</a>
+  <h3>You currently have {{data.values()[0]}} recipes</h3>
+  
+       
+
+  
+  <br>
   <hr>
   
   {% if session.logged_in == NULL %}
